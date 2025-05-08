@@ -26,7 +26,7 @@ DIST_THRESHOLD = 0.35
 # Si le fichier modèle existe, il est supprimé pour réentraînement
 if os.path.exists("reconnaissance_model.pkl"):
     os.remove("reconnaissance_model.pkl")
-    print("🗑️ Modèle supprimé pour réentraînement.")
+    print(" Modèle supprimé pour réentraînement.")
 
 
 def normalize_coordinates(coords):
@@ -84,6 +84,10 @@ class FaceRecognitionApp:
         # Label pour la date et l'heure
         self.datetime_label = tk.Label(window, text="", font=("Arial", 16), fg="blue")
         self.datetime_label.pack(pady=5)
+        
+        self.name_label = tk.Label(self.window, text="Aucun visage détecté", font=("Arial", 16), fg="black")
+        self.name_label.pack(pady=5)
+
 
         # Bouton pour démarrer la reconnaissance
         self.start_button = tk.Button(window, text="Démarrer la reconnaissance", command=self.start, bg="pink", fg="white", font=("Arial", 14))
